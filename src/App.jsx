@@ -11,3 +11,5 @@ function App() {
 }
 
 export default App;
+
+// integracion de App.jsx de destinos-react
