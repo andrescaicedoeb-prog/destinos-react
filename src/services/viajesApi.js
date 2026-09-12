@@ -51,3 +51,5 @@ export const eliminarViaje = async (id) => {
         throw new Error("No se pudo eliminar el destino");
     }
 };
+
+// integracion de viajesApi.js
