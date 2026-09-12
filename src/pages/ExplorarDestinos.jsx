@@ -78,3 +78,5 @@ function ExplorarDestinos({ onDestinoAgregado }) {
 }
 
 export default ExplorarDestinos;
+
+//integracion de explorarDestinos.jsx
