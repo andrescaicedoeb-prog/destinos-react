@@ -12,3 +12,5 @@ export const buscarPais = async (nombre) => {
     const datos = await respuesta.json();
     return Array.isArray(datos) ? datos[0] : datos;
 };
+
+// integracion de api.js
