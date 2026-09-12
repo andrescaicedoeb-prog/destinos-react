@@ -1,18 +1,81 @@
 {
   "listaDeViajes": [
     {
+      "pais": "France",
+      "bandera": "https://flagcdn.com/w320/fr.png",
+      "prioridad": "media",
+      "visitado": false,
+      "id": "Eer_jISp0QU"
+    },
+    {
+      "pais": "Brazil",
+      "bandera": "https://flagcdn.com/w320/br.png",
+      "prioridad": "media",
+      "visitado": true,
+      "id": "bCITI2YS03Y"
+    },
+    {
+      "pais": "Mexico",
+      "bandera": "https://flagcdn.com/w320/mx.png",
+      "prioridad": "media",
+      "visitado": false,
+      "id": "o2HfgzPZGuA"
+    },
+    {
       "pais": "Colombia",
       "bandera": "https://flagcdn.com/w320/co.png",
       "prioridad": "media",
-      "visitado": false,
-      "id": "cEJPy61t1ww"
+      "visitado": true,
+      "id": "uuFFw5CU1Zc"
     },
     {
-      "pais": "Japan",
-      "bandera": "https://flagcdn.com/w320/jp.png",
+      "pais": "Peru",
+      "bandera": "https://flagcdn.com/w320/pe.png",
+      "prioridad": "baja",
+      "visitado": false,
+      "id": "uqMswX5lvyE"
+    },
+    {
+      "pais": "Panama",
+      "bandera": "https://flagcdn.com/w320/pa.png",
       "prioridad": "media",
       "visitado": false,
-      "id": "uPmCLAtXtHw"
+      "id": "jPjY4uulWaM"
+    },
+    {
+      "pais": "Norway",
+      "bandera": "https://flagcdn.com/w320/no.png",
+      "prioridad": "media",
+      "visitado": false,
+      "id": "Qvf8MW48WTI"
+    },
+    {
+      "pais": "British Indian Ocean Territory",
+      "bandera": "https://flagcdn.com/w320/io.png",
+      "prioridad": "media",
+      "visitado": false,
+      "id": "JcH1oVRtajc"
+    },
+    {
+      "pais": "Argentina",
+      "bandera": "https://flagcdn.com/w320/ar.png",
+      "prioridad": "media",
+      "visitado": false,
+      "id": "jxLnRa0pi_M"
+    },
+    {
+      "pais": "China",
+      "bandera": "https://flagcdn.com/w320/cn.png",
+      "prioridad": "media",
+      "visitado": false,
+      "id": "qFaGBk-fpMo"
+    },
+    {
+      "pais": "Korea (Democratic People's Republic of)",
+      "bandera": "https://flagcdn.com/w320/kp.png",
+      "prioridad": "media",
+      "visitado": false,
+      "id": "sbkRgAjmqdQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

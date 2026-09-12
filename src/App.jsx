@@ -7,13 +7,11 @@ function App() {
   const [actualizar, setActualizar] = useState(0);
 
   return (
-    <main>
-      <h1>Explora Destinos</h1>
+    <main className="app">
+      <h1>🌍 Explora Destinos</h1>
 
       <ExplorarDestinos
-        onDestinoAgregado={() =>
-          setActualizar((valor) => valor + 1)
-        }
+        onDestinoAgregado={() => setActualizar((valor) => valor + 1)}
       />
 
       <hr />

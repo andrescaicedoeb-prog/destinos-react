@@ -38,39 +38,39 @@ function ExplorarDestinos({ onDestinoAgregado }) {
     };
 
     return (
-        <section>
+        <section className="explorar">
             <h2>Explorar destinos</h2>
 
-            <input
-                type="text"
-                value={busqueda}
-                placeholder="Ejemplo: japon"
-                onChange={(evento) =>
-                    setBusqueda(evento.target.value)
-                }
-            />
+            <div className="buscador">
+                <input
+                    type="text"
+                    value={busqueda}
+                    placeholder="Ejemplo: japon"
+                    onChange={(evento) => setBusqueda(evento.target.value)}
+                />
+                <button className="btn-buscar" onClick={buscar}>Buscar</button>
+            </div>
 
-            <button onClick={buscar}>Buscar</button>
-
-            {error && <p>{error}</p>}
+            {error && <p className="error">{error}</p>}
 
             {destino && (
-                <article>
-                    <h2>{destino.name}</h2>
-
+                <article className="tarjeta-destino">
                     <img
                         src={destino.flags.png}
                         alt={destino.name}
-                        width="150"
+                        className="bandera"
                     />
 
-                    <p>Capital: {destino.capital}</p>
-                    <p>Región: {destino.region}</p>
-                    <p>Población: {destino.population}</p>
+                    <div className="info-destino">
+                        <h3>{destino.name}</h3>
+                        <p><span>Capital:</span> {destino.capital}</p>
+                        <p><span>Región:</span> {destino.region}</p>
+                        <p><span>Población:</span> {destino.population.toLocaleString()}</p>
 
-                    <button onClick={agregarADestinos}>
-                        Agregar a mi lista de viajes
-                    </button>
+                        <button className="btn-agregar" onClick={agregarADestinos}>
+                            + Agregar a mi lista
+                        </button>
+                    </div>
                 </article>
             )}
         </section>
@@ -78,5 +78,3 @@ function ExplorarDestinos({ onDestinoAgregado }) {
 }
 
 export default ExplorarDestinos;
-
-//integracion de explorarDestinos.jsx

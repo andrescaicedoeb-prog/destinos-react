@@ -38,52 +38,66 @@ function MiListaDeViajes({ actualizar }) {
     };
 
     return (
-        <section>
+        <section className="mi-lista">
             <h2>Mi Lista de Viajes</h2>
 
-            {error && <p>{error}</p>}
+            {error && <p className="error">{error}</p>}
 
             {viajes.length === 0 ? (
-                <p>Todavía no has agregado destinos.</p>
+                <p className="vacio">Todavía no has agregado destinos.</p>
             ) : (
-                viajes.map((viaje) => (
-                    <article key={viaje.id}>
-                        <h3>{viaje.pais}</h3>
+                <div className="grid-viajes">
+                    {viajes.map((viaje) => (
+                        <article key={viaje.id} className="tarjeta-viaje">
+                            <img
+                                src={viaje.bandera}
+                                alt={viaje.pais}
+                                className="bandera-chica"
+                            />
 
-                        <img
-                            src={viaje.bandera}
-                            alt={viaje.pais}
-                            width="100"
-                        />
+                            <div className="contenido-viaje">
+                                <h3>{viaje.pais}</h3>
 
-                        <p>
-                            Estado: {viaje.visitado
-                                ? "Visitado"
-                                : "Pendiente"}
-                        </p>
+                                <span
+                                    className={`estado ${viaje.visitado ? "visitado" : "pendiente"}`}
+                                >
+                                    {viaje.visitado ? "Visitado" : "Pendiente"}
+                                </span>
 
-                        <button onClick={() => marcarVisitado(viaje)}>
-                            {viaje.visitado
-                                ? "Marcar como pendiente"
-                                : "Marcar como visitado"}
-                        </button>
+                                <span className={`prioridad prioridad-${viaje.prioridad}`}>
+                                    Prioridad: {viaje.prioridad}
+                                </span>
 
-                        <select
-                            value={viaje.prioridad}
-                            onChange={(evento) =>
-                                cambiarPrioridad(viaje, evento.target.value)
-                            }
-                        >
-                            <option value="baja">Baja</option>
-                            <option value="media">Media</option>
-                            <option value="alta">Alta</option>
-                        </select>
+                                <div className="acciones">
+                                    <button
+                                        className="btn-toggle"
+                                        onClick={() => marcarVisitado(viaje)}
+                                    >
+                                        {viaje.visitado ? "Marcar pendiente" : "Marcar visitado"}
+                                    </button>
 
-                        <button onClick={() => quitarDestino(viaje.id)}>
-                            Quitar de mi lista
-                        </button>
-                    </article>
-                ))
+                                    <select
+                                        value={viaje.prioridad}
+                                        onChange={(evento) =>
+                                            cambiarPrioridad(viaje, evento.target.value)
+                                        }
+                                    >
+                                        <option value="baja">Baja</option>
+                                        <option value="media">Media</option>
+                                        <option value="alta">Alta</option>
+                                    </select>
+
+                                    <button
+                                        className="btn-quitar"
+                                        onClick={() => quitarDestino(viaje.id)}
+                                    >
+                                        Quitar
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    ))}
+                </div>
             )}
         </section>
     );
