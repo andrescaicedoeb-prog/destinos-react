@@ -1,53 +1,73 @@
-/* ---------- Variables ---------- */
+/* ============================================================
+   EXPLORA DESTINOS — hoja de estilos oficial
+   Paleta: tonos tierra / viaje (verde bosque, arena, azul cielo)
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap");
+
 :root {
-    --bg: #0f1117;
-    --bg-card: #1a1d29;
-    --bg-card-hover: #20232f;
-    --border: #2a2d3a;
-    --text: #e8e9ed;
-    --text-muted: #9296a3;
-    --primary: #6366f1;
-    --primary-hover: #4f52d6;
-    --danger: #ef4444;
-    --danger-hover: #dc2626;
-    --success: #22c55e;
-    --warning: #f59e0b;
-    --radius: 14px;
-    --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    /* --- Paleta base --- */
+    --bg: #f6f1e6;              /* arena clara, fondo general */
+    --bg-card: #fffdf8;         /* crema, casi blanco, para tarjetas */
+    --bg-card-hover: #fbf5e9;   /* arena tostada al pasar el mouse */
+    --border: #e1d5bd;         /* borde arena */
+
+    --text: #2e2a22;           /* casi-negro cálido, no negro puro */
+    --text-muted: #7a715f;     /* texto secundario, arena oscura */
+
+    --verde: #3f6b52;          /* verde bosque — color de marca */
+    --verde-hover: #2f5240;
+    --azul-cielo: #4f8ea6;     /* azul cielo — acento secundario */
+    --azul-cielo-suave: rgba(79, 142, 166, 0.15);
+
+    --terracota: #c1673f;      /* terracota — pendiente / alerta */
+    --terracota-suave: rgba(193, 103, 63, 0.15);
+    --oro: #b98d2c;            /* dorado arena — prioridad media */
+    --oro-suave: rgba(185, 141, 44, 0.15);
+
+    --radius: 10px;
+    --shadow: 0 6px 18px rgba(46, 42, 34, 0.1);
+
+    --fuente-titulo: "Fraunces", serif;
+    --fuente-texto: "Inter", system-ui, sans-serif;
 }
 
+/* ---------- Base ---------- */
 body {
-    background: radial-gradient(circle at top, #171a24 0%, var(--bg) 60%);
+    background: var(--bg);
     color: var(--text);
-    font-family: "Segoe UI", system-ui, sans-serif;
-    line-height: 1.5;
+    font-family: var(--fuente-texto);
+    line-height: 1.55;
 }
 
 .app {
     max-width: 900px;
     margin: 0 auto;
-    padding: 40px 20px 80px;
+    padding: 48px 20px 80px;
 }
 
 h1 {
     text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 32px;
-    background: linear-gradient(90deg, var(--primary), #a855f7);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    font-family: var(--fuente-titulo);
+    font-weight: 600;
+    font-size: 2.4rem;
+    color: var(--verde);
+    margin-bottom: 36px;
+    letter-spacing: 0.2px;
 }
 
 h2 {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
+    font-family: var(--fuente-titulo);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 18px;
 }
 
 hr {
     border: none;
     border-top: 1px solid var(--border);
-    margin: 48px 0;
+    margin: 52px 0;
 }
 
 /* ---------- Buscador ---------- */
@@ -64,19 +84,22 @@ hr {
     border: 1px solid var(--border);
     background: var(--bg-card);
     color: var(--text);
+    font-family: var(--fuente-texto);
     font-size: 1rem;
     outline: none;
     transition: border-color 0.2s;
 }
 
 .buscador input:focus {
-    border-color: var(--primary);
+    border-color: var(--azul-cielo);
 }
 
+/* ---------- Botones ---------- */
 button {
     cursor: pointer;
     border: none;
     border-radius: var(--radius);
+    font-family: var(--fuente-texto);
     font-size: 0.95rem;
     font-weight: 600;
     padding: 12px 18px;
@@ -87,40 +110,53 @@ button:active {
     transform: scale(0.97);
 }
 
+button:focus-visible {
+    outline: 2px solid var(--azul-cielo);
+    outline-offset: 2px;
+}
+
+/* Botones principales: buscar, agregar, marcar visitado */
 .btn-buscar,
 .btn-agregar,
 .btn-toggle {
-    background: var(--primary);
-    color: white;
+    background: var(--verde);
+    color: #fff;
 }
 
 .btn-buscar:hover,
 .btn-agregar:hover,
 .btn-toggle:hover {
-    background: var(--primary-hover);
+    background: var(--verde-hover);
 }
 
+/* Botón de quitar: contorno terracota, se rellena al pasar el mouse */
 .btn-quitar {
     background: transparent;
-    color: var(--danger);
-    border: 1px solid var(--danger);
+    color: var(--terracota);
+    border: 1px solid var(--terracota);
 }
 
 .btn-quitar:hover {
-    background: var(--danger);
-    color: white;
+    background: var(--terracota);
+    color: #fff;
 }
 
+/* ---------- Mensajes de error ---------- */
 .error {
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid var(--danger);
-    color: #fca5a5;
+    background: var(--terracota-suave);
+    border: 1px solid var(--terracota);
+    color: #8a3f22;
     padding: 10px 14px;
     border-radius: var(--radius);
     margin-bottom: 16px;
 }
 
-/* ---------- Tarjeta destino (Explorar) ---------- */
+/* ---------- Sección "Explorar destinos" ---------- */
+.explorar {
+    margin-bottom: 8px;
+}
+
+/* Tarjeta de resultado de búsqueda */
 .tarjeta-destino {
     display: flex;
     gap: 20px;
@@ -136,13 +172,15 @@ button:active {
     width: 150px;
     height: 100px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 6px;
     flex-shrink: 0;
 }
 
 .info-destino h3 {
+    font-family: var(--fuente-titulo);
     margin-bottom: 8px;
     font-size: 1.3rem;
+    color: var(--verde);
 }
 
 .info-destino p {
@@ -159,7 +197,7 @@ button:active {
     margin-top: 14px;
 }
 
-/* ---------- Lista de viajes ---------- */
+/* ---------- Mi Lista de Viajes ---------- */
 .mi-lista .vacio {
     color: var(--text-muted);
     font-style: italic;
@@ -196,9 +234,12 @@ button:active {
 }
 
 .contenido-viaje h3 {
+    font-family: var(--fuente-titulo);
+    color: var(--text);
     margin-bottom: 8px;
 }
 
+/* Etiquetas de estado y prioridad */
 .estado,
 .prioridad {
     display: inline-block;
@@ -211,28 +252,28 @@ button:active {
 }
 
 .estado.visitado {
-    background: rgba(34, 197, 94, 0.15);
-    color: var(--success);
+    background: rgba(63, 107, 82, 0.15);
+    color: var(--verde);
 }
 
 .estado.pendiente {
-    background: rgba(245, 158, 11, 0.15);
-    color: var(--warning);
+    background: var(--terracota-suave);
+    color: var(--terracota);
 }
 
 .prioridad-baja {
-    background: rgba(148, 163, 184, 0.15);
-    color: #94a3b8;
+    background: rgba(122, 113, 95, 0.15);
+    color: var(--text-muted);
 }
 
 .prioridad-media {
-    background: rgba(99, 102, 241, 0.15);
-    color: var(--primary);
+    background: var(--oro-suave);
+    color: var(--oro);
 }
 
 .prioridad-alta {
-    background: rgba(239, 68, 68, 0.15);
-    color: var(--danger);
+    background: var(--azul-cielo-suave);
+    color: var(--azul-cielo);
 }
 
 .acciones {
@@ -249,9 +290,11 @@ button:active {
     border: 1px solid var(--border);
     background: var(--bg);
     color: var(--text);
+    font-family: var(--fuente-texto);
     font-size: 0.9rem;
 }
 
+/* ---------- Animaciones ---------- */
 @keyframes aparecer {
     from {
         opacity: 0;
@@ -261,5 +304,17 @@ button:active {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+    .tarjeta-destino {
+        flex-direction: column;
+    }
+
+    .tarjeta-destino .bandera {
+        width: 100%;
+        height: 160px;
     }
 }
